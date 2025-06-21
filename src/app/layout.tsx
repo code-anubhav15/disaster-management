@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import HomeLink from "@/components/HomeLink";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,28 +40,38 @@ export default function RootLayout({
       >
         {/* Right-side Vertical Icons */}
         <div className="fixed top-1/2 right-4 transform -translate-y-1/2 z-50 flex flex-col space-y-6 text-white text-xl">
-          <HomeLink />
-          <div
+          <Link
+            href="/"
+            className="h-12 w-12 flex items-center justify-center border-2 rounded-full backdrop-blur-md cursor-pointer hover:bg-gray-600"
+            title="Home"
+          >
+            <i className="fas fa-home" />
+          </Link>
+          <Link
+            href="/map-view"
             className="h-12 w-12 flex items-center justify-center border-2 rounded-full backdrop-blur-md cursor-pointer hover:bg-gray-600"
             title="Map"
           >
             <i className="fas fa-map" />
-          </div>
-          <div
+          </Link>
+          <Link
+            href="/latest-tweets"
             className="h-12 w-12 flex items-center justify-center border-2 rounded-full backdrop-blur-md cursor-pointer hover:bg-gray-600"
-            title="Tweets"
+            title="Latest Tweets"
           >
             <i className="fas fa-users" />
-          </div>
-          <div
+          </Link>
+          <Link
+            href="/relief-camps"
             className="h-12 w-12 flex items-center justify-center border-2 rounded-full  backdrop-blur-md cursor-pointer hover:bg-gray-600"
-            title="Use My Location"
+            title="Relief Camps"
           >
-            <i className="fas fa-location-dot" />
-          </div>
+            <i className="fas fa-tents" />
+          </Link>
         </div>
 
         {children}
+        <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
       </body>
     </html>
   );
