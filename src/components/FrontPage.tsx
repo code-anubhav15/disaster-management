@@ -10,6 +10,14 @@ const FrontPage = () => {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black opacity-50" />
 
+      <div className="absolute top-8 left-8 z-50">
+          <img
+            src="/images/logo1.png"
+            alt="Logo"
+            className="h-[100px] w-[200px] object-contain"
+          />
+        </div>
+
       {/* Get Started Button - Top Right */}
       <div className="absolute top-16 right-32 flex space-x-6 z-20">
         <Link href="/map">

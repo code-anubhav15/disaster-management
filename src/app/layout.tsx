@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import HomeLink from "@/components/HomeLink";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,25 +35,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
-        {/* Top-left Logo */}
-        <div className="fixed top-4 left-4 z-50">
-          <img
-            src="/images/logo1.png"
-            alt="Logo"
-            className="h-[100px] w-[200px] object-contain"
-          />
-        </div>
-
         {/* Right-side Vertical Icons */}
         <div className="fixed top-1/2 right-4 transform -translate-y-1/2 z-50 flex flex-col space-y-6 text-white text-xl">
-          <div
-            className="h-12 w-12 flex items-center justify-center border-2 rounded-full  backdrop-blur-md cursor-pointer hover:bg-gray-600"
-            title="Home"
-          >
-            <i className="fas fa-home" />
-          </div>
+          <HomeLink />
           <div
             className="h-12 w-12 flex items-center justify-center border-2 rounded-full backdrop-blur-md cursor-pointer hover:bg-gray-600"
             title="Map"
